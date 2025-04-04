@@ -11,19 +11,17 @@ router.post(
 );
 
 // /api/v1/airplanes/ GET request
-router.get("/", AirplaneController.getAirplanes);
+  router.get("/", AirplaneController.getAirplanes);
 
 // /api/v1/airplane/:id GET request
-router.get("/:id", AirplaneController.getAirplane);
+  router.get("/:id", AirplaneController.getAirplane);
 
 // /api/v1/aiplane/:id  DELET request
-router.delete("/:id", AirplaneController.destroyAirplanes);
+  router.delete("/:id", AirplaneController.destroyAirplanes);
 
 
-// 
-router.patch(
-  "/:id",
-  AirplaneController.updateAirplane
+//  api/v1/airplane/:id PATCH request
+  router.patch("/:id", AirplaneController.updateAirplane
 );
 
 module.exports = router;
