@@ -1,5 +1,5 @@
 
 module.exports ={
-    ErrorResponce:require('./error-response'),
-    SuccessResponce:require('./success-reponse'),
+    ErrorResponse:require('./error-response'),
+    SuccessResponse:require('./success-reponse'),
 }
