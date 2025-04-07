@@ -12,11 +12,9 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.City,{
         foreignKey:'cityId',
         onDelete:'CASCADE',
-        onUpdate:'CASCADE'
       });
     }
-  }
-  Airport.init(
+  }Airport.init(
     {
       name: {
         type: DataTypes.STRING,
@@ -32,15 +30,23 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         unique: true,
       },
-      cityID: {
+      cityId: {
         type: DataTypes.INTEGER,
         allowNull: false,
-      },
+        references: {
+          model: 'Cities', // Your Cities table
+          key: 'id'
+        },
+        onDelete: 'CASCADE', //  This is what you need
+        onUpdate: 'CASCADE'
+      }
+      
     },
     {
       sequelize,
       modelName: "Airport",
     }
   );
+  
   return Airport;
 };

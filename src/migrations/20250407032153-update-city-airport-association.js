@@ -16,7 +16,6 @@ module.exports = {
 
       },
       onUpdate:'CASCADE',
-      onDELETE:'CASCADE'
 
     })
   },

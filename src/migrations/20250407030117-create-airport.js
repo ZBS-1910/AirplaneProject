@@ -26,6 +26,12 @@ module.exports = {
       cityID: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        references: {
+          model: 'Cities', //  Your Cities table
+          key: 'id'
+        },
+        onDelete: 'CASCADE', //  This is what you need
+        onUpdate: 'CASCADE'
       },
       createdAt: {
         allowNull: false,
@@ -37,6 +43,7 @@ module.exports = {
       }
     });
   },
+
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Airports');
   }
