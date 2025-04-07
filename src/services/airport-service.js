@@ -25,16 +25,17 @@ async function createAirport(data) {
 
 async function getAirports() {
     try {
-        const airport = await AirportRepository.getAll();
+        const airport = await airportRepository.getAll();
         return airport;
     } catch(error) {
+        console.log("got error",error)
         throw new AppError('Cannot fetch data of all the Airports', StatusCodes.INTERNAL_SERVER_ERROR);
     }
 }
 
 async function getAirport(id) {
     try {
-        const airport = await AirportRepository.get(id);
+        const airport = await airportRepository.get(id);
         return airport;
     } catch(error) {
         if(error.statusCode == StatusCodes.NOT_FOUND) {
@@ -46,7 +47,7 @@ async function getAirport(id) {
 
 async function destroyAirport(id) {
     try {
-        const airport = await AirportRepository.destroy(id);
+        const airport = await airportRepository.destroy(id);
         return airport;
     } catch(error) {
         if(error.statusCode == StatusCodes.NOT_FOUND) {
@@ -58,20 +59,18 @@ async function destroyAirport(id) {
 
 async function updateAirport(id, data) {
     try {
-        const airport = await AirportRepository.update(id,data);
+        const airport = await airportRepository.update(id, data); 
         return airport;
-    } catch(error) {
+    } catch (error) {
         console.log(error);
-        if(error.name == 'SequelizeValidationError') {
-            let explanation = [];
-            error.errors.forEach((err) => {
-                explanation.push(err.message);
-            });
+        if (error.name === 'SequelizeValidationError') {
+            const explanation = error.errors.map(err => err.message);
             throw new AppError(explanation, StatusCodes.BAD_REQUEST);
         }
-        throw new AppError('Cannot create a new airport object', StatusCodes.INTERNAL_SERVER_ERROR);
+        console.log("got error", error);
+        throw new AppError('Cannot update a new airport object', StatusCodes.INTERNAL_SERVER_ERROR);
     }
-    }
+}
     
 
 module.exports = {

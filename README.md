@@ -111,3 +111,7 @@ To apply the model and update the database schema, run the migration command. Th
 npx sequelize db:migrate
 ```
 
+code to the Fkey relation
+```
+SELECT * FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE WHERE TABLE_NAME = 'flights' AND CONSTRAINT_SCHEMA = 'flights'; 
+```

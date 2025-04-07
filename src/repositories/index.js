@@ -1,4 +1,3 @@
-const AirportRepository = require('./airport-repository');
 
 module.exports={
     
