@@ -17,3 +17,9 @@
 2025-04-03 14:58:06:  error: Somthing  went wrong in the CRUD Repo:create 
 2025-04-03 15:33:04:  error: Somthing  went wrong in the CRUD Repo:create 
 2025-04-03 16:17:22:  error: Somthing  went wrong in the CRUD Repo:create 
+2025-04-06 12:09:06:  error: Something went wrong in the Crud Repo : destroy
+2025-04-06 22:44:38:  error: Something went wrong in the Crud Repo : update
+2025-04-06 22:44:45:  error: Something went wrong in the Crud Repo : update
+2025-04-06 22:44:46:  error: Something went wrong in the Crud Repo : update
+2025-04-06 22:44:57:  error: Something went wrong in the Crud Repo : update
+2025-04-06 22:51:10:  error: Something went wrong in the Crud Repo : update
