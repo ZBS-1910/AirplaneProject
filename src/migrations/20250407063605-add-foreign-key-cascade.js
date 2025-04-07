@@ -1,5 +1,4 @@
 'use strict';
-
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.removeConstraint('Airports', 'city_fkey_constraint');
@@ -18,5 +17,7 @@ module.exports = {
 
   async down(queryInterface, Sequelize) {
     // logic to revert if needed
+    await queryInterface.removeConstraint('Airports', 'city_fkey_constraint');
   }
 };
+ 

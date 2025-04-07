@@ -1,9 +1,9 @@
 const CrudRepository = require('./crud-repository');
-const { city } = require('../models'); // Correctly importing model
+const { City } = require('../models'); // ✅ Fixed capitalization
 
 class CityRepository extends CrudRepository {
   constructor() {
-    super(city); // 🔥 This passes the model to CrudRepository
+    super(City); // ✅ Pass correct model
   }
 }
 
