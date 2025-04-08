@@ -13,7 +13,7 @@ export default {
         type: Sequelize.STRING,
         allowNull: false
       },
-      airplanesId: {
+      airplaneId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
