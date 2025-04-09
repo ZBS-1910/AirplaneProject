@@ -1,6 +1,6 @@
 'use strict';
 /** @type {import('sequelize-cli').Migration} */
-export default {
+module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Flights', {
       id: {
@@ -20,16 +20,16 @@ export default {
           model: 'Airplanes',
           key: 'id'
         },
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
       },
       departureAirportId: {
         type: Sequelize.STRING,
         allowNull: false,
         references: {
-          model: 'Airports', // ✅ fixed from 'Airplanes'
+          model: 'Airports',
           key: 'code'
         },
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
       },
       arrivalAirportId: {
         type: Sequelize.STRING,
@@ -38,7 +38,7 @@ export default {
           model: 'Airports',
           key: 'code'
         },
-        onDelete: 'CASCADE'
+        onDelete: 'CASCADE',
       },
       arrivalTime: {
         type: Sequelize.DATE,

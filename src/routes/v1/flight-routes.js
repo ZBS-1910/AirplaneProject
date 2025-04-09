@@ -10,5 +10,8 @@ router.post('/',
         FlightMiddlewares.validateCreate,
         FlightController.createFlight);
 
+// api/v1/flights?trips=MUB_BLR  GET 
+router.get('/',
+        FlightController.getAllFlights);
 
 module.exports = router;

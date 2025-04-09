@@ -1,33 +1,34 @@
 'use strict';
-const { Model } = require('sequelize');
-
+const {
+  Model
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Flight extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
     static associate(models) {
-      // Association with Airplane
+      // define association here
       this.belongsTo(models.Airplane, {
-        foreignKey: 'airplanesId',
-        as: 'airplane'
+        foreignKey: 'airplaneId',
+        as: 'airplaneDetail'
       });
-
-      // Association with Airport (Departure)
       this.belongsTo(models.Airport, {
         foreignKey: 'departureAirportId',
-        as: 'departureAirport'
+        as: 'departureAirport',
       });
-
-      // Association with Airport (Arrival)
       this.belongsTo(models.Airport, {
         foreignKey: 'arrivalAirportId',
-        as: 'arrivalAirport'
+        as: 'arrivalAirport',
       });
     }
   }
-
   Flight.init({
     flightNumber: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     airplaneId: {
       type: DataTypes.INTEGER,
@@ -35,35 +36,34 @@ module.exports = (sequelize, DataTypes) => {
     },
     departureAirportId: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     arrivalAirportId: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
     arrivalTime: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: false
     },
     departureTime: {
       type: DataTypes.DATE,
-      allowNull: false,
+      allowNull: false
     },
     price: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      allowNull: false
     },
     boardingGate: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING
     },
-    totalSeats: {
+    totalSeats: { // total remaining seats
       type: DataTypes.INTEGER,
-      allowNull: false, // fixed this
-    }
+      allowNull: false
+    },
   }, {
     sequelize,
     modelName: 'Flight',
   });
-
   return Flight;
 };
